@@ -1,31 +1,38 @@
 #include <iostream>
 #include <vector>
 
-void solution (std::vector <int>& num, int& targ){
-
-    int size = num.size();
-
-    for(int i = 0; i < size; i++)
+class Solution{
+    public:
+    std::vector<int> twoSum(const std::vector<int>& nums, int target)
     {
-        for(int j = i + 1; j < size; j++)
+        for (int i = 0; i < nums.size(); i++)
         {
-            if( (num[i] + num[j]) == targ )
+            for (int j = i + 1; j < nums.size(); j++)
             {
-                std::cout << "la solucion es i: " << i << " y tambien es j: " << j << std::endl;
+                if( (nums[i] + nums[j]) == target)
+                {
+                    return{i, j};
+                }
             }
         }
+        return {};
     }
-}
+};
+
+
 
 int main()
-{
-    std::vector<int> numbers = {10, 20, 30, 40, 50, 60};
+{   
+    Solution solution1;
+    std::vector<int> vector1 = {2,7,11,15};
+    int x = 9;
 
-    int target = 90;
+    std::vector<int> vector2 = solution1.twoSum(vector1, x);
 
-    solution(numbers, target);
+    for(auto x : vector2)
+    {
+        std::cout << x << std::endl;
+    }
 
-
-    
     return 0;
 }
